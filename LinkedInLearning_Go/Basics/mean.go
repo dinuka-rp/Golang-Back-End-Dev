@@ -11,8 +11,10 @@ func main(){
 	// var x float64
 	// var y float64
 
-	x := 1.0 
-	y := 2.0
+	// x := 1.0 
+	// y := 2.0
+	x, y := 1.0, 2.0
+	//Assigning two variables in the same line
 
 	fmt.Printf("x=%v, type of %T\n", x, x)
 	fmt.Printf("y=%v, type of %T\n", y, y)
