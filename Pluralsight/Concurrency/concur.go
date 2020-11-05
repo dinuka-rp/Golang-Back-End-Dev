@@ -4,8 +4,11 @@ import (
 	"fmt"
 	"sync"
 	"time"
+	"runtime"
 )
+//Parallelism - making 2 go routines to be able to run simultaneously on separate threads/ cors
 func main(){
+	runtime.GOMAXPROCS(2)	// no. of virtual processors/ threads
 
 	var waitGrp sync.WaitGroup
 	waitGrp.Add(2)		// number of Go Routines expected to end before exiting
