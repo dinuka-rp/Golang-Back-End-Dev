@@ -23,4 +23,9 @@ func main(){
 	}
 
 	fmt.Println(DockerDeepDive)
+	fmt.Println("\nDocker Deep Dive author is:", DockerDeepDive.Author)
+
+	// modifying field values in structs
+	DockerDeepDive.Rating=1
+	fmt.Println(DockerDeepDive)
 }
