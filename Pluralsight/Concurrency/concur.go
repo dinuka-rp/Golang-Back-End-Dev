@@ -2,10 +2,11 @@ package main
 
 import (
 	"fmt"
+	"runtime"
 	"sync"
 	"time"
-	"runtime"
 )
+// Concurrency - composition of independently carrying out tasks
 //Parallelism - making 2 go routines to be able to run simultaneously on separate threads/ cors
 func main(){
 	runtime.GOMAXPROCS(2)	// no. of virtual processors/ threads
