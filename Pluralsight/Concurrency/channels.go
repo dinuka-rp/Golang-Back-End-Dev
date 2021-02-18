@@ -28,14 +28,20 @@ func main() {
 
 	wg.Add(2)
 
-	go func(ch <-chan int, wg *sync.WaitGroup) {		// receive only channel
-		fmt.Println(<-ch) // receive a message from a channel
+	go func(ch <-chan int, wg *sync.WaitGroup) { // receive only channel
+		if msg, ok := <-ch; ok {                 // ok is used to check if channel is open
+			fmt.Println(msg, ok) // receive a message from a channel
+		}
 		wg.Done()
 	}(ch, wg)
 
-	go func(ch chan<- int, wg *sync.WaitGroup) {		// send only channel
-		ch <- 42 //	pass a message into the channel
-		ch <- 27
+	go func(ch chan<- int, wg *sync.WaitGroup) { // send only channel
+		//ch <- 42 //	pass a message into the channel
+		//ch <- 27
+
+		//ch <- 0
+		close(ch)
+
 		wg.Done()
 	}(ch, wg)
 
