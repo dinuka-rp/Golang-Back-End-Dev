@@ -29,9 +29,16 @@ func main() {
 	wg.Add(2)
 
 	go func(ch <-chan int, wg *sync.WaitGroup) { // receive only channel
-		if msg, ok := <-ch; ok {                 // ok is used to check if channel is open
-			fmt.Println(msg, ok) // receive a message from a channel
+		// -- -channels in if statements
+		//if msg, ok := <-ch; ok {                 // ok is used to check if channel is open
+		//	fmt.Println(msg, ok) // receive a message from a channel
+		//}
+
+		// -- -channels in loops
+		for msg := range ch { // no explicit range, range of the channel is used
+			fmt.Println(msg)
 		}
+
 		wg.Done()
 	}(ch, wg)
 
@@ -39,8 +46,14 @@ func main() {
 		//ch <- 42 //	pass a message into the channel
 		//ch <- 27
 
+		// -- -channels in if statements
 		//ch <- 0
-		close(ch)
+
+		// -- -channels in loops
+		for i := 0; i < 10; i++ {
+			ch <- i
+		}
+		close(ch)	// this is needed to let the for loop know that the channel is over - to avoid deadlock
 
 		wg.Done()
 	}(ch, wg)
