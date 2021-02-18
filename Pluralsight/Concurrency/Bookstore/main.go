@@ -19,7 +19,7 @@ func main() {
 
 	for i := 0; i < 10; i++ {
 		id := rnd.Intn(10) + 1 // book IDs 1-10
-		wg.Add(2)              // how many concurrent tasks that the wait group will wait for
+		wg.Add(3)              // how many concurrent tasks that the wait group will wait for
 		go func(id int, wg *sync.WaitGroup, m *sync.RWMutex, ch chan<- Book) {
 			if b, ok := queryCache(id, m); ok {
 				//	if ok is true
@@ -52,13 +52,14 @@ func main() {
 				fmt.Println("from database")
 				fmt.Println(b)
 			}
+			wg.Done()
 		}(cacheCh, dbCh)
 
 		//fmt.Printf("Book not found with id: '%v'", id)
 		time.Sleep(150 * time.Millisecond) // used to warmup the cache
 	}
 	wg.Wait()
-	time.Sleep(2 * time.Millisecond) // to make sure that all the go routines are completed
+	//time.Sleep(2 * time.Millisecond) // to make sure that all the go routines are completed
 }
 
 func queryCache(id int, m *sync.RWMutex) (Book, bool) {
