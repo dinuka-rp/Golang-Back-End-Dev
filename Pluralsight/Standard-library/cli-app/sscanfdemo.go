@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	file, err := os.Open("test-files/family.csv")
+	file, err := os.Open("./test-files/family.csv")
 	if err != nil {
 		log.Fatal(err)
 	}

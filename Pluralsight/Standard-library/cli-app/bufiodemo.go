@@ -19,7 +19,7 @@ func main() {
 	//}
 
 	// file input
-	file, err := os.Open("test-files/test.txt")
+	file, err := os.Open("./test-files/test.txt")
 	if err != nil {
 		fmt.Println(err)
 	}
