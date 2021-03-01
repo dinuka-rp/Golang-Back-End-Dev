@@ -1,0 +1,10 @@
+total 32
+drwxrwxr-x 3 dinuka-rp dinuka-rp 4096 Mar  1 14:29 .
+drwxrwxr-x 5 dinuka-rp dinuka-rp 4096 Feb 26 03:39 ..
+-rw-rw-r-- 1 dinuka-rp dinuka-rp  712 Mar  1 14:23 bufiodemo.go
+-rw-rw-r-- 1 dinuka-rp dinuka-rp  862 Feb 26 03:39 dinnerTotal.go
+drwxrwxr-x 2 dinuka-rp dinuka-rp 4096 Feb 26 03:39 executables
+-rw-rw-r-- 1 dinuka-rp dinuka-rp  395 Feb 26 03:39 flagTest.go
+-rw-rw-r-- 1 dinuka-rp dinuka-rp  435 Mar  1 14:10 scandemo.go
+-rw-rw-r-- 1 dinuka-rp dinuka-rp  422 Feb 26 03:39 showmestuff.go
+-rw-rw-r-- 1 dinuka-rp dinuka-rp    0 Mar  1 14:29 text.txt
