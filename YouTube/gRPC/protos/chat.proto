@@ -1,0 +1,19 @@
+syntax = "proto3";
+package chat;
+option go_package = "../gRPC/proto_buffs";    // this will be the output directory of the generated proto buff
+
+// from gRPC directory, run command: protoc --go-grpc_out=. protos/chat.proto
+
+service ChatService {
+  rpc SayHello(HelloRequest) returns (HelloReply) {}
+}
+
+// The request message containing the user's name.
+message HelloRequest {
+  string name = 1;
+}
+
+// The response message containing the greetings
+message HelloReply {
+  string message = 1;
+}

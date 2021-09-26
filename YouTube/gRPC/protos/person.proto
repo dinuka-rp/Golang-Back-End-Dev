@@ -1,0 +1,16 @@
+syntax="proto3";
+package person;
+option go_package = "../gRPC/proto_buffs";    // this will be the output directory of the generated proto buff
+
+// from gRPC directory, run command: protoc --go_out=. protos/*.proto
+
+message SocialFollowers {
+  int32 youtube = 1;
+  int32 twitter = 2;
+}
+
+message Person {
+  string name = 1;
+  int32 age = 2;
+  SocialFollowers socialFollowers = 3;
+}
